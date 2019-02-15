@@ -1,4 +1,7 @@
 backend/.env
-frontend/.env
+frontend/config/*
 **/node_modules
 .DS_Store
+.next/
+*.log
+.build/

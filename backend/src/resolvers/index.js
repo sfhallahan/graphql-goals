@@ -1,8 +1,11 @@
-const user = require('./Mutation/user')
+const userMutations = require('./Mutation/user')
+const userQueries = require('./Query/user')
 
 module.exports = {
-  // Query: {},
+  Query: {
+    ...userQueries
+  },
   Mutation: {
-    ...user
+    ...userMutations
   }
 }

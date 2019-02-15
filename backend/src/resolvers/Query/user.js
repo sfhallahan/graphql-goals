@@ -5,3 +5,5 @@ const user = {
     return ctx.db.query.user({ where: { id: userId } })
   }
 }
+
+module.exports = user

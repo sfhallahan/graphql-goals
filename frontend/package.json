@@ -1,0 +1,29 @@
+{
+  "name": "graphql-goals-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "sfhallahan@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.1.28",
+    "apollo-client": "^2.4.13",
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^1.10.0",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "next": "^8.0.1",
+    "next-with-apollo": "^3.3.2",
+    "prop-types": "^15.7.1",
+    "react": "^16.8.1",
+    "react-adopt": "^0.6.0",
+    "react-apollo": "^2.4.1",
+    "react-dom": "^16.8.1",
+    "styled-components": "^4.1.3"
+  }
+}
