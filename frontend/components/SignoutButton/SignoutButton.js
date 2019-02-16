@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import Router from 'next/router'
-import gql from 'graphql-tag'
-import { ME_QUERY } from '../../pages/_app'
 
-const SIGN_OUT_MUTATION = gql`
-  mutation SIGN_OUT_MUTATION {
-    signout {
-      message
-    }
-  }
-`
+import { ME_QUERY } from '../../lib/graphql/queries'
+import { SIGN_OUT_MUTATION } from '../../lib/graphql/mutations'
 
 class SignoutButton extends Component {
   render() {

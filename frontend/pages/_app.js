@@ -2,41 +2,8 @@ import App, { Container } from 'next/app'
 import { ApolloProvider } from 'react-apollo'
 import withApollo from '../lib/client/withData'
 
-import gql from 'graphql-tag'
-import Router from 'next/router'
-
-export const ME_QUERY = gql`
-  query ME_QUERY {
-    me {
-      id
-      email
-    }
-  }
-`
-
-const checkIsSignedIn = async client => {
-  try {
-    const { data = {} } = await client.query({
-      query: ME_QUERY
-    })
-    console.log(data)
-    return data.me && data.me.id
-  } catch (e) {
-    console.log(e)
-    return false
-  }
-}
-
-const redirect = ({ res, path }) => {
-  if (typeof window === 'undefined') {
-    res.writeHead(302, {
-      Location: `http://localhost:3000${path}`
-    })
-    res.end()
-    return
-  }
-  Router.push(`${path}`)
-}
+import { checkIsSignedIn, redirect } from '../lib/utils'
+import { ME_QUERY } from '../lib/graphql/queries'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -50,13 +17,14 @@ class MyApp extends App {
     else if (Component.unprotected && isSignedIn) {
       redirect({ res, path: '/' })
     }
-
+    if (Component.getInitialProps) {
+      Component.getInitialProps()
+    }
     return {}
   }
 
   render() {
     const { Component, pageProps, apollo } = this.props
-
     return (
       <Container>
         <ApolloProvider client={apollo}>

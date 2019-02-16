@@ -2,17 +2,8 @@ import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import Router from 'next/router'
 import gql from 'graphql-tag'
-import { ME_QUERY } from '../../pages/_app'
-
-const LOGIN_MUTATION = gql`
-  mutation LOGIN_MUTATION($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
-      id
-      name
-      email
-    }
-  }
-`
+import { ME_QUERY } from '../../lib/graphql/queries'
+import { LOGIN_MUTATION } from '../../lib/graphql/mutations'
 
 class Login extends Component {
   state = {
