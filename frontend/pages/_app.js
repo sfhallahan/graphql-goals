@@ -3,7 +3,7 @@ import { ApolloProvider } from 'react-apollo'
 import withApollo from '../lib/client/withData'
 
 import { checkIsSignedIn, redirect } from '../lib/utils'
-import { ME_QUERY } from '../lib/graphql/queries'
+import Page from '../components/Page'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -18,7 +18,7 @@ class MyApp extends App {
       redirect({ res, path: '/' })
     }
     if (Component.getInitialProps) {
-      Component.getInitialProps()
+      Component.getInitialProps(ctx)
     }
     return {}
   }
@@ -28,7 +28,9 @@ class MyApp extends App {
     return (
       <Container>
         <ApolloProvider client={apollo}>
-          <Component {...pageProps} />
+          <Page>
+            <Component {...pageProps} />
+          </Page>
         </ApolloProvider>
       </Container>
     )
