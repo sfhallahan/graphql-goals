@@ -130,6 +130,13 @@ a {
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
+  text-decoration: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 /* change colours to suit your needs */

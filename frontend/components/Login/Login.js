@@ -95,6 +95,7 @@ const StyledLogin = styled.div`
     form {
       justify-content: center;
     }
+  }
 `
 
 const CreateAccountButton = styled(Button)`

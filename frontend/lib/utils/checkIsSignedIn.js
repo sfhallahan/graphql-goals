@@ -5,7 +5,7 @@ const checkIsSignedIn = async client => {
     const { data = {} } = await client.query({
       query: ME_QUERY
     })
-    return data.me && data.me.id
+    return Boolean(data.me && data.me.id)
   } catch (e) {
     return false
   }

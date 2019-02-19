@@ -9,6 +9,7 @@ import Meta from '../Meta'
 const theme = {
   background: '#EEEEEE',
   purple: '#7d45fc',
+  darkBlue: '#293244',
   text: 'rgba(0,0,0, 0.87)',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
@@ -20,6 +21,18 @@ const theme = {
 const StyledPage = styled.div`
   color: ${props => props.theme.black};
   height: 100%;
+  > div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .appContainer {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    flex-direction: column;
+  }
 `
 
 Router.onRouteChangeStart = () => {
